@@ -8,6 +8,6 @@ public interface AccountService {
     Account findById(Long id);
     int reviewFullTransfer(Long bankId);
     BigDecimal reviewSaldo(Long accountId);
-    void transfer(Long originAccountNumber, Long destinationAccountNumber, BigDecimal amount);
+    void transfer(Long bankId, Long originAccountNumber, Long destinationAccountNumber, BigDecimal amount);
 
 }
