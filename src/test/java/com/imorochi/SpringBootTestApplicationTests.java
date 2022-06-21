@@ -2,6 +2,9 @@ package com.imorochi;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
+
+import com.imorochi.model.Account;
+import com.imorochi.model.Bank;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -50,6 +53,16 @@ class SpringBootTestApplicationTests {
 
         assertEquals("900", originSaldo.toPlainString());
         assertEquals("2100", destinSaldo.toPlainString());
+
+        int total = accountService.reviewFullTransfer(1L);
+        assertEquals(1, total);
+
+        verify(accountRepository, times(3)).findById(1L);
+        verify(accountRepository, times(3)).findById(2L);
+        verify(accountRepository, times(2)).update(any(Account.class));
+
+        verify(bankRepository, times(2)).findById(1L);
+        verify(bankRepository, times(1)).update(any(Bank.class));
 
     }
 
