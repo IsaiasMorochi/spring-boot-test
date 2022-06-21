@@ -70,6 +70,9 @@ class SpringBootTestApplicationTests {
         verify(bankRepository, times(2)).findById(1L);
         verify(bankRepository, times(1)).update(any(Bank.class));
 
+        verify(accountRepository, times(6)).findById(anyLong());
+        verify(accountRepository, never()).findAll();
+
     }
 
     @Test
@@ -104,6 +107,22 @@ class SpringBootTestApplicationTests {
         verify(bankRepository, times(1)).findById(1L);
         verify(bankRepository, never()).update(any(Bank.class));
 
+        verify(accountRepository, times(5)).findById(anyLong());
+        verify(accountRepository, never()).findAll();
     }
 
+    @Test
+    void test_verify_same_object() {
+        when(accountRepository.findById(1L)).thenReturn(createdAccount001());
+
+        Account accountOne = accountService.findById(1L);
+        Account accountTwo = accountService.findById(1L);
+
+        assertSame(accountOne, accountTwo);
+        assertTrue(accountOne == accountTwo);
+        assertEquals("Isaias", accountOne.getPerson());
+        assertEquals("Isaias", accountTwo.getPerson());
+
+        verify(accountRepository, times(2)).findById(1L);
+    }
 }
