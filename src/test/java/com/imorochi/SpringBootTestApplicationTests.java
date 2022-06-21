@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 import com.imorochi.exception.InsufficientMoneyException;
 import com.imorochi.model.Account;
 import com.imorochi.model.Bank;
+import com.imorochi.services.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,26 +14,25 @@ import static com.imorochi.mock.Data.*;
 
 import com.imorochi.repositories.AccountRepository;
 import com.imorochi.repositories.BankRepository;
-import com.imorochi.services.AccountService;
-import com.imorochi.services.AccountServiceImpl;
 
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.math.BigDecimal;
 
 @SpringBootTest
 class SpringBootTestApplicationTests {
 
-    @Mock
+    @MockBean
     AccountRepository accountRepository;
 
-    @Mock
+    @MockBean
     BankRepository bankRepository;
 
-    @InjectMocks //es necesario injectar la implementacion
-    AccountServiceImpl accountService;
+    //@InjectMocks //es necesario injectar la implementacion
+    @Autowired
+    AccountService accountService;
 
     @BeforeEach
     void setU() {

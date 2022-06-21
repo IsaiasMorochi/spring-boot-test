@@ -4,9 +4,11 @@ import com.imorochi.model.Account;
 import com.imorochi.model.Bank;
 import com.imorochi.repositories.AccountRepository;
 import com.imorochi.repositories.BankRepository;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
+@Service
 public class AccountServiceImpl implements AccountService {
 
     private AccountRepository accountRepository;
