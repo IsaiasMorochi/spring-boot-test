@@ -16,6 +16,8 @@ import com.imorochi.repositories.BankRepository;
 import com.imorochi.services.AccountService;
 import com.imorochi.services.AccountServiceImpl;
 
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
@@ -23,17 +25,21 @@ import java.math.BigDecimal;
 @SpringBootTest
 class SpringBootTestApplicationTests {
 
+    @Mock
     AccountRepository accountRepository;
+
+    @Mock
     BankRepository bankRepository;
 
-    AccountService accountService;
+    @InjectMocks //es necesario injectar la implementacion
+    AccountServiceImpl accountService;
 
     @BeforeEach
     void setU() {
-        accountRepository = mock(AccountRepository.class);
-        bankRepository = mock(BankRepository.class);
+//        accountRepository = mock(AccountRepository.class);
+//        bankRepository = mock(BankRepository.class);
 
-        accountService = new AccountServiceImpl(accountRepository, bankRepository);
+//        accountService = new AccountServiceImpl(accountRepository, bankRepository);
 
 //        Data.ACCOUNT_001.setSaldo(new BigDecimal("1000"));
 //        Data.ACCOUNT_002.setSaldo(new BigDecimal("2000"));
