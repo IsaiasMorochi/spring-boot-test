@@ -1,4 +1,4 @@
-package com.imorochi;
+package com.imorochi.repositories;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -22,7 +22,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.math.BigDecimal;
 
 @SpringBootTest
-class SpringBootTestApplicationTests {
+class RepositoryTest {
 
     @MockBean
     AccountRepository accountRepository;

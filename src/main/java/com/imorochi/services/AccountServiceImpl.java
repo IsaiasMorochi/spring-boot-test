@@ -52,4 +52,5 @@ public class AccountServiceImpl implements AccountService {
         bank.setFullTransfer(++fullTransfer);
         bankRepository.save(bank);
     }
+
 }
