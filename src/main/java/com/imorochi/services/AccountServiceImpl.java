@@ -41,11 +41,11 @@ public class AccountServiceImpl implements AccountService {
 
         Account originAccount = accountRepository.findById(originAccountNumber).orElseThrow();
         originAccount.debit(amount);
-        accountRepository.update(originAccount);
+        accountRepository.save(originAccount);
 
         Account destinationAccount = accountRepository.findById(destinationAccountNumber).orElseThrow();
         destinationAccount.credit(amount);
-        accountRepository.update(destinationAccount);
+        accountRepository.save(destinationAccount);
 
         Bank bank = bankRepository.findById(bankId).orElseThrow();
         int fullTransfer = bank.getFullTransfer();
