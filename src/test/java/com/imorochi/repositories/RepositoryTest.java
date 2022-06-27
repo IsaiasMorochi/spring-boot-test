@@ -12,9 +12,6 @@ import org.junit.jupiter.api.Test;
 
 import static com.imorochi.mock.Data.*;
 
-import com.imorochi.repositories.AccountRepository;
-import com.imorochi.repositories.BankRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -35,7 +32,7 @@ class RepositoryTest {
     AccountService accountService;
 
     @BeforeEach
-    void setU() {
+    void setUp() {
 //        accountRepository = mock(AccountRepository.class);
 //        bankRepository = mock(BankRepository.class);
 
