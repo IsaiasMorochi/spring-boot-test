@@ -1,4 +1,4 @@
-package com.imorochi.repositories;
+package com.imorochi;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -6,6 +6,8 @@ import static org.mockito.Mockito.*;
 import com.imorochi.exception.InsufficientMoneyException;
 import com.imorochi.model.Account;
 import com.imorochi.model.Bank;
+import com.imorochi.repositories.AccountRepository;
+import com.imorochi.repositories.BankRepository;
 import com.imorochi.services.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +21,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.math.BigDecimal;
 
 @SpringBootTest
-class RepositoryTest {
+class SpringBootUnitTest {
 
     @MockBean
     AccountRepository accountRepository;

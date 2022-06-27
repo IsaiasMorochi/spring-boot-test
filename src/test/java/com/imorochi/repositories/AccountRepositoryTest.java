@@ -1,4 +1,4 @@
-package com.imorochi;
+package com.imorochi.repositories;
 
 import com.imorochi.model.Account;
 import com.imorochi.repositories.AccountRepository;
@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
-public class IntegrationTest {
+public class AccountRepositoryTest {
 
     @Autowired
     AccountRepository accountRepository;
